@@ -208,7 +208,7 @@ function drawVectorDiagram() {
     const cx = canvas.width / 2;
     const cy = canvas.height / 2;
 
-    const magnitude = 180;
+    const magnitude = 290;
     const angle = 30 * Math.PI / 180;
 
     let sx = 1;
@@ -251,27 +251,49 @@ function drawVectorDiagram() {
     }
 
     // ======================
-    // X COMPONENT
+    // COMPONENT TRIANGLE
     // ======================
 
-    ctx.strokeStyle = "green";
     ctx.lineWidth = 4;
 
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.lineTo(cx + vx, cy);
-    ctx.stroke();
+    if (V2.value === "x") {
 
-    // ======================
-    // Y COMPONENT
-    // ======================
+        // Angle measured from x-axis
+        // x side touches the 30° angle
 
-    ctx.strokeStyle = "orange";
+        ctx.strokeStyle = "green";
 
-    ctx.beginPath();
-    ctx.moveTo(cx + vx, cy);
-    ctx.lineTo(cx + vx, cy + vy);
-    ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + vx, cy);
+        ctx.stroke();
+
+        ctx.strokeStyle = "orange";
+
+        ctx.beginPath();
+        ctx.moveTo(cx + vx, cy);
+        ctx.lineTo(cx + vx, cy + vy);
+        ctx.stroke();
+
+    } else {
+
+        // Angle measured from y-axis
+        // y side touches the 30° angle
+
+        ctx.strokeStyle = "orange";
+
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx, cy + vy);
+        ctx.stroke();
+
+        ctx.strokeStyle = "green";
+
+        ctx.beginPath();
+        ctx.moveTo(cx, cy + vy);
+        ctx.lineTo(cx + vx, cy + vy);
+        ctx.stroke();
+    }
 
     // ======================
     // RESULTANT VECTOR
@@ -290,11 +312,22 @@ function drawVectorDiagram() {
 
     ctx.font = "20px Arial";
 
-    ctx.fillStyle = "green";
-    ctx.fillText("x-component", cx + vx / 2, cy - 10);
+    if (V2.value === "x") {
 
-    ctx.fillStyle = "orange";
-    ctx.fillText("y-component", cx + vx + 10, cy + vy / 2);
+        ctx.fillStyle = "green";
+        ctx.fillText("x-component", cx + vx / 2, cy - 10);
+
+        ctx.fillStyle = "orange";
+        ctx.fillText("y-component", cx + vx + 10, cy + vy / 2);
+
+    } else {
+
+        ctx.fillStyle = "orange";
+        ctx.fillText("y-component", cx + 10, cy + vy / 2);
+
+        ctx.fillStyle = "green";
+        ctx.fillText("x-component", cx + vx / 2, cy + vy - 10);
+    }
 
     ctx.fillStyle = "red";
     ctx.fillText("Vector", cx + vx + 10, cy + vy - 10);
