@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolving Vectors Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Resolving Vectors</h1>
+
+        <!-- Quadrant Diagram -->
+        <canvas id="quadrantCanvas" width="900" height="500"></canvas>
+
+        <!-- Students Key In -->
+        <div class="section-title">Students key in</div>
+
+        <div class="row">
+
+            <div class="label">Vector:</div>
+
+            <select id="V1">
+                <option value="">V1</option>
+                <option value="Q1">On Quadrant 1</option>
+                <option value="Q2">On Quadrant 2</option>
+                <option value="Q3">On Quadrant 3</option>
+                <option value="Q4">On Quadrant 4</option>
+            </select>
+
+            <div class="box fixed">5</div>
+
+            <select id="V2">
+                <option value="">V2</option>
+                <option value="x">With x-axis</option>
+                <option value="y">With y-axis</option>
+            </select>
+
+            <div class="box fixed">30°</div>
+
+        </div>
+
+        <!-- Display -->
+        <div class="section-title">Display</div>
+
+        <div class="row">
+
+            <div class="label">Vector(x):</div>
+
+            <div id="x1" class="box display-box"></div>
+            <div class="box fixed">5</div>
+            <div id="x2" class="box display-box"></div>
+            <div class="box fixed">30</div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="label">Vector(y):</div>
+
+            <div id="y1" class="box display-box"></div>
+            <div class="box fixed">5</div>
+            <div id="y2" class="box display-box"></div>
+            <div class="box fixed">30</div>
+
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-row">
+            <button id="resolveBtn" disabled>RESOLVE</button>
+            <button id="resetBtn">RESET</button>
+        </div>
+
+        <!-- Vector Graph -->
+        <h2>Resolved Vector Diagram</h2>
+
+        <canvas id="vectorCanvas" width="900" height="550"></canvas>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
